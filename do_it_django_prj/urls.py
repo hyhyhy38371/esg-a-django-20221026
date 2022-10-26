@@ -15,8 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.http import HttpResponse
+
+def root(request):
+    return HttpResponse("welcome to Django")
 
 urlpatterns = [
+    path('', root),
     path("blog/", include('blog.urls')),
     path("admin/", admin.site.urls),
 ]
