@@ -9,11 +9,17 @@
 <body>
     <h1>blog</h1>
 
-{% for post in posts %}
-    <hr/>
-    <h3>{{ post.title }}</h3>    
-    <h4>{{ post.created_at}}</h4>
-    <p> {{ post.content}}</p>
+    {% for post in posts %}
+        <h2>
+            <a href="{{post.get_absolute_url}}">
+            <a href="/blog/{{ post.pk }}/">
+            {{ post.title }}
+            </a>
+        </h2>    
+        <h4>{{ post.created_at }}</h4>
+        <p> {{ post.content }}</p>
+
     {% endfor %}    
+
 </body>
 </html>
